@@ -4,7 +4,7 @@ window.onload = function() {
 }
 function handleRefresh() {
 	console.log("here");
-	var url = "http://openapi.seoul.go.kr:8088/4c5a754b5276767638326461696d52/xml/GwanakClassLectureList/1/30/"
+	var url = "http://openapi.seoul.go.kr:8088/4c5a754b5276767638326461696d52/xml/GwanakClassLectureList/1/30"
 	var xhttp = new XMLHttpRequest();
 	xhttp.onreadystatechange = function(){
 		if(this.readyState == 4 && this.status == 200){
@@ -18,10 +18,10 @@ function handleRefresh() {
 function updatelecture(xml) {
 	var xmlDoc = xml.responseXML;
 	var lecturesDiv = document.getElementById("lectures");
-	lectures = xmlDoc.getElementsByTagName("lecture");
+	lectures = xmlDoc.getElementsByTagName("row");
 
 	for (var i = 0; i < lectures.length; i++) {
-		var lecture = lectures[i];
+		var row = lectures[i];
 		var div = document.createElement("div");
 		div.setAttribute("class", "lecture");
 		div.innerHTML = 
